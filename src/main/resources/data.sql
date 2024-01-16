@@ -1,0 +1,15 @@
+insert into personajes values
+(1, 'Rick Prime',
+'Rick Sanchez de la Dimensión Prime, también conocido como Rick Prime, es el antagonista principal de la serie animada para adultos de ciencia ficción de Adult Swim, Rick y Morty.',
+'Es el responsable de la muerte de la esposa del Rick protagonista  , quien lo considera su mayor nemesis y que gasto toda su vida buscandólo.',
+'https://preview.redd.it/what-do-you-think-the-overall-goals-of-rick-prime-are-v0-s31835wyajyb1.jpg?auto=webp&s=e7eb01d3072693d8c31c108cad115d24cbfb841a',
+'https://static.wikia.nocookie.net/rick-y-morty-espanol/images/0/09/RickPrime3.jpg/revision/latest/scale-to-width-down/1000?cb=20230225203714&path-prefix=es',
+'https://static.wikia.nocookie.net/rick-y-morty-espanol/images/7/72/Rick_prime2.webp/revision/latest?cb=20230225203533&path-prefix=es',
+'https://static.wikia.nocookie.net/rick-y-morty-espanol/images/2/2c/RIckPrimeYC137.png/revision/latest/scale-to-width-down/1000?cb=20230317201041&path-prefix=es'),
+(2, 'Rick Sánchez',
+'Richard Daniel "Rick" Sánchez de la Dimensión C-137 es un viejo científico alcohólico que acostumbra hablar de manera vulgar y entre eructos aparte de hablar de forma bastante inapropiada constantemente, la mayoría de las veces tiene un rastro de saliva e incluso se cree que es licor en la boca. Es padre de Beth Smith y el abuelo materno de Summer y Morty.',
+'Es un hombre que ha pasado gran parte de su vida viajando a través de diversas dimensiones dando a entender que Morty es muy poco inteligente al punto de ser casi un retrasado.',
+'https://pyxis.nymag.com/v1/imgs/bb2/701/c4787eccc4a76307518ae0632fb9196faa-rick-and-morty.rsquare.w400.jpg',
+'https://static.wikia.nocookie.net/rick-y-morty-espanol/images/0/09/RickPrime3.jpg/revision/latest/scale-to-width-down/1000?cb=20230225203714&path-prefix=es',
+'https://static.wikia.nocookie.net/rick-y-morty-espanol/images/7/72/Rick_prime2.webp/revision/latest?cb=20230225203533&path-prefix=es',
+'https://static.wikia.nocookie.net/rick-y-morty-espanol/images/2/2c/RIckPrimeYC137.png/revision/latest/scale-to-width-down/1000?cb=20230317201041&path-prefix=es');

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Mi Página</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+</head>
+<body>
+
+<style>
+    .lead{
+    font-size: 1.55rem !important;
+    }
+</style>
+
+<!-- Contenido de tu página -->
+<div class="container">
+    <div class="row">
+        <div class="text-center">
+            <h1>Personajes Rick and Morty</h1>
+        </div>
+    </div>
+</div>
+
+
+<div th:each="personaje : ${personajes}" class="container">
+
+    <div >
+        <div class="row">
+            <div class="col-lg-6">
+                <h4 th:text="${personajes.getNombre()}"></h4> <!-- titulo-->
+                <p class="lead" th:text="${personajes.getP1()}"></p> <!-- pa1-->
+                <p class="lead" th:text="${personajes.getP2()}"></p> <!-- pa2-->
+            </div>
+            <div class="col-lg-6">
+                <img class="img-fluid" th:src="${personajes.getImgprincipal()}" alt="">
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+
+            <h2>Galeria</h2>
+
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <img class="img-fluid" th:src="${personajes.getImg1()}" alt="">
+            </div>
+            <div class="col-lg-4">
+                <img class="img-fluid" th:src="${personajes.getImg2()}" alt="">
+            </div>
+            <div class="col-lg-4">
+                <img class="img-fluid" th:src="${personajes.getImg3()}" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Incluir Bootstrap JavaScript desde WebJars -->
+<script th:src="@{/webjars/bootstrap/5.2.1/dist/js/bootstrap.min.js}"></script>
+</body>
+</html>
+
+
+

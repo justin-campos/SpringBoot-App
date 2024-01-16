@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Personaje</title>
+</head>
+<body>
+<h2>Formulario de Personaje</h2>
+
+<form action="/addpersonaje/guardar" method="post" th:object="${personaje}">
+
+  <label for="nombre">Nombre:</label>
+  <input type="text" id="nombre" name="nombre" required><br>
+
+  <label for="p1">parrafo1:</label>
+  <textarea id="p1" name="p1" required></textarea><br>
+
+  <label for="p2">parrafo2:</label>
+  <textarea id="p2" name="p2" required></textarea><br>
+
+  <label for="imgprincipal">Imagen Principal:</label>
+  <input type="text" id="imgprincipal" name="imgprincipal" required><br>
+
+  <label for="img1">img1:</label>
+  <input id="img1" name="img1" required><br>
+
+  <label for="img2">img2:</label>
+  <input id="img2" name="img2" required><br>
+
+  <label for="img3">img3:</label>
+  <input id="img3" name="img3" required><br>
+
+  <button type="submit">Guardar</button>
+</form>
+</body>
+</html>
