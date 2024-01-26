@@ -2,9 +2,7 @@ package com.ram.ram.models;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name="personajes")
-public class Personaje {
+public class Editar {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,10 +15,11 @@ public class Personaje {
     private String img2;
     private String img3;
 
-    public Personaje() {
+    public Editar() {
     }
 
-    public Personaje(String nombre, String p1, String p2, String imgprincipal, String img1, String img2, String img3) {
+    public Editar(Long id, String nombre, String p1, String p2, String imgprincipal, String img1, String img2, String img3) {
+        this.id = id;
         this.nombre = nombre;
         this.p1 = p1;
         this.p2 = p2;

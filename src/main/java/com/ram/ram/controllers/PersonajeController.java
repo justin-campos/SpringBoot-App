@@ -26,18 +26,25 @@ public class PersonajeController {
     String getPersonaje(@PathVariable long id, Model model) {
         List personajes = personajeRepository.findAll();
 
-        System.out.println(personajes);
-
         if(personajes.size() < id){
             return "error";
         }
 
-        System.out.println(id);
-
         int idp = (int)id;
+        int idbd = 0;
+        // Imprimir los valores de id
+        for (int i = 0; i < personajes.size(); i++) {
+            if (personajes.get(i) instanceof Personaje) {
+                Personaje personaje = (Personaje) personajes.get(i);
+                if(personaje.getId() == idp){
+                    idbd = i;
+                    break;
+                }
+            }
+        }
 
         // Devuelve el nombre de la vista que mostrará el resultado
-        model.addAttribute("personajes", personajes.get(idp));
+        model.addAttribute("personajes", personajes.get(idbd));
         return "personaje";
     }
 

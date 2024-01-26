@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Inicio</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid justify-content-center">
+        <a class="navbar-brand" href="/">RickAndMorty</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/addpersonaje/formulario">Agregar Personaje</a>
+                </li>
+                <li class="nav-item">
+                    <form method="POST" th:action="@{/logout}">
+                        <button class="nav-link" type="submit">Desloguear</button>
+                    </form>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Muestra el mensaje si está presente -->
+<div class="container-fluid" th:if="${not #strings.isEmpty(mensaje)}">
+    <div class="alert alert-success" role="alert" th:text="${mensaje}">
+</div>
+</div>
+
+
+</div>
+
+<div class="container mt-2">
+    <div class="row">
+        <div class="col-lg-12">
+            <table class="table table-dark table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Borrar</th>
+                    <th scope="col">Editar</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr  th:each="personaje : ${personajes}">
+                    <th scope="row" th:text="${personaje.id}"></th>
+                    <td th:text="${personaje.nombre}"></td>
+                    <td>
+                        <form th:object="${borrar}" th:action="@{/borrar}" method="post">
+                            <input type="text" th:value="${personaje.id}" name="id" hidden>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                                Eliminar
+                            </button>
+                        </form>
+                    </td>
+                    <td>
+                        <a th:data-id="${personaje.id}"
+                           type="button" class="btn btn-primary" data-bs-toggle="modal"
+                           data-bs-target="#exampleModal">
+                            <i class="fa-solid fa-pencil"></i>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form th:action="@{/editar}" method="post" th:object="${editar}" id="formEdit">
+
+                    <div class="col">
+                        <label class="form-label">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre" class="form-control" placeholder="" required><br>
+                    </div>
+
+                    <label for="p1">parrafo1:</label>
+                    <input id="p1" name="p1" class="form-control"  required><br>
+
+                    <label for="p2">parrafo2:</label>
+                    <input id="p2" name="p2" class="form-control" required><br>
+
+                    <div class="row mb-4">
+                        <div class="col">
+                            <label for="imgprincipal">Imagen Principal:</label>
+                            <input type="text" id="imgprincipal" name="imgprincipal" class="form-control" required>
+                            <div id="emailHelp" class="form-text">Agregue la url de la imagen.</div>
+                            <br>
+                        </div>
+
+                        <div class="col">
+                            <label for="img1">img1:</label>
+                            <input id="img1" name="img1" class="form-control" required>
+                            <div id="emailHelp" class="form-text">Agregue la url de la imagen.</div>
+                            <br>
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col">
+                            <label for="img2">img2:</label>
+                            <input id="img2" name="img2" class="form-control" required>
+                            <div id="emailHelp" class="form-text">Agregue la url de la imagen.</div>
+                            <br>
+                        </div>
+
+                        <div class="col">
+                            <label for="img3">img3:</label>
+                            <input id="img3" name="img3" class="form-control" required>
+                            <div id="emailHelp" class="form-text">Agregue la url de la imagen.</div>
+                            <br>
+                        </div>
+                    </div>
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button class="btn btn-primary" type="submit">Guardar</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script th:inline="javascript">
+
+    var listaPersonajes = /*[[${personajes}]]*/ [];
+
+
+    // Escuchar el evento de apertura del modal
+    $(document).ready(function() {
+        $('[data-bs-target="#exampleModal"]').on('click', function() {
+            var personajeId = $(this).data('id');
+            console.log("ID del personaje:", personajeId);
+            // Busca el objeto en la listaPersonajes con el ID igual a personajeId
+            var personajeSeleccionado = listaPersonajes.find(function(personaje) {
+                return personaje.id === personajeId;
+            });
+
+            $("#nombre").attr("placeholder", personajeSeleccionado.nombre);
+            $("#p1").attr("placeholder", personajeSeleccionado.p1);
+            $("#p2").attr("placeholder", personajeSeleccionado.p2);
+            $("#imgprincipal").attr("placeholder", personajeSeleccionado.imgprincipal);
+            $("#img1").attr("placeholder", personajeSeleccionado.img1);
+            $("#img2").attr("placeholder", personajeSeleccionado.img2);
+            $("#img3").attr("placeholder", personajeSeleccionado.img3);
+
+            // Asignar un valor al elemento con el ID "miInput"
+            $("#nombre").val(personajeSeleccionado.nombre);
+            $("#p1").val(personajeSeleccionado.p1);
+            $("#p2").val(personajeSeleccionado.p2);
+            $("#imgprincipal").val(personajeSeleccionado.imgprincipal);
+            $("#img1").val(personajeSeleccionado.img1);
+            $("#img2").val(personajeSeleccionado.img2);
+            $("#img3").val(personajeSeleccionado.img3);
+
+            var rutaid = "/editar/" + personajeSeleccionado.id;
+
+            // Utilizar jQuery para cambiar el valor del atributo action
+            $("#formEdit").attr("action", rutaid);
+
+
+        });
+    });
+
+
+
+
+</script>
+<!-- Incluir Bootstrap JavaScript desde WebJars -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
