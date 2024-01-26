@@ -7,22 +7,22 @@ Este proyecto utiliza Spring Boot MVC con el motor de plantillas Thymeleaf y una
 ### Creación de Personajes
 Permite a los usuarios crear nuevos personajes y almacenarlos en la base de datos.
 
-![Creación de Personajes](https://via.placeholder.com/600x400)
+![Creación de Personajes](https://raw.githubusercontent.com/justin-campos/SpringBoot-App/master/src/main/resources/static/img/creaciondepersonajes.png)
 
 ### Búsqueda de Personajes
 Los usuarios pueden realizar búsquedas de personajes desde la página de inicio.
 
-![Búsqueda de Personajes](https://via.placeholder.com/600x400)
+![Búsqueda de Personajes](https://raw.githubusercontent.com/justin-campos/SpringBoot-App/master/src/main/resources/static/img/busquedadepersonajes.png)
 
 ### Inicio de Sesión y Roles
 Implementa un sistema de inicio de sesión con roles. Existe el rol de administrador que tiene acceso a funciones adicionales.
 
-![Inicio de Sesión y Roles](https://via.placeholder.com/600x400)
+![Inicio de Sesión y Roles](https://raw.githubusercontent.com/justin-campos/SpringBoot-App/master/src/main/resources/static/img/iiniciodesesion.png)
 
 ### Administración de Registros
 Los administradores pueden acceder a la ruta `/tabla` para ver, editar y borrar registros de la base de datos.
 
-![Administración de Registros](https://via.placeholder.com/600x400)
+![Administración de Registros](https://raw.githubusercontent.com/justin-campos/SpringBoot-App/master/src/main/resources/static/img/administracionderegistro.png)
 
 ## Tecnologías Utilizadas
 
